@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
 import RecipeDisplay from './RecipeDisplay';
+import Footer from './Footer'; // Import the Footer component
 
 function App() {
   const [recipe, setRecipe] = useState(null);
@@ -63,7 +64,8 @@ function App() {
         <RecipeDisplay recipe={recipe} />
       </div>
 
-    </div >
+      <Footer />
+    </div>
   );
 }
 
