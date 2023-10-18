@@ -13,12 +13,15 @@ function RecipeDisplay({ recipe }) {
         <div
             className={`recipe-display ${recipe ? 'active' : ''}`}
         >
-            <h2>{recipeName}</h2>
-            <ul>
-                {steps.map((step, index) => (
-                    <li key={index}>{step}</li>
-                ))}
-            </ul>
+            <h2 className='recipe-name'>{recipeName}</h2>
+            {/* map over the steps array and render a list item for each step with the step header and step description */}
+            {steps.map((step, index) => (
+                <div key={`step+${index + 1}`}>
+                    <h3>Step {index + 1}</h3>
+                    <p>{step}</p>
+                </div>
+            ))}
+
         </div>
     );
 }

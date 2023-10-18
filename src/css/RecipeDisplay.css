@@ -2,13 +2,21 @@
 .recipe-display {
     background-color: #FFF0D3;
     width: 800px;
-    margin: 0 auto;
+    margin: 8% auto;
     padding: 20px;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.5s;
+    font-family: 'Inter', sans-serif;
 }
 
 .recipe-display.active {
-    max-height: 500px;
+    max-height: 800px;
+}
+
+.recipe-name {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Abhaya Libre', serif;
 }
