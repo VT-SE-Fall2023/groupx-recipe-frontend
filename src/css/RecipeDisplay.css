@@ -1,0 +1,14 @@
+/* RecipeDisplay.css */
+.recipe-display {
+    background-color: #FFF0D3;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s;
+}
+
+.recipe-display.active {
+    max-height: 500px;
+}
