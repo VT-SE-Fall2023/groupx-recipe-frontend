@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import RecipeDisplay from './RecipeDisplay';
@@ -13,6 +13,13 @@ function App() {
     ],
   };
 
+  let recipeDisplayRef = useRef(null);
+
+  function scrollTo(ref) {
+    if (!ref.current) return;
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   const handleGenerateRecipe = () => {
     // Replace this with your actual API endpoint
     // fetch('YOUR_API_ENDPOINT_HERE')
@@ -24,6 +31,9 @@ function App() {
     setTimeout(() => {
       setRecipe(dummyRecipeData);
     }, 500);
+
+    // Scroll the recipe display into view
+    scrollTo(recipeDisplayRef);
   };
 
 
@@ -32,23 +42,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <button className="generate-button" onClick={handleGenerateRecipe}>
           Generate
         </button>
       </header>
 
-      <RecipeDisplay recipe={recipe} />
+      <div style={{ height: "800px" }} ref={recipeDisplayRef}>
+        <RecipeDisplay recipe={recipe} />
+      </div>
+
     </div>
   );
 }
