@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #378C84;
+}
+
 .App {
   text-align: center;
 }
@@ -32,7 +36,19 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+.generate-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
