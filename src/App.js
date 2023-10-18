@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import logo from './logo.svg';
+import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
 import RecipeDisplay from './RecipeDisplay';
 
@@ -39,7 +40,15 @@ function App() {
     scrollTo(recipeDisplayRef);
   };
 
-
+  const divStyle = {
+    backgroundImage: `url(${displayBg})`,
+    backgroundSize: 'cover', // Adjust as needed
+    backgroundRepeat: 'no-repeat', // Adjust as needed
+    backgroundPosition: 'center bottom', // Adjust as needed
+    height: '1000px',
+    display: 'flex',
+    padding: '5% 20%',
+  };
 
   return (
     <div className="App">
@@ -50,11 +59,11 @@ function App() {
         </button>
       </header>
 
-      <div style={{ height: "800px" }} ref={recipeDisplayRef}>
+      <div style={divStyle} ref={recipeDisplayRef}>
         <RecipeDisplay recipe={recipe} />
       </div>
 
-    </div>
+    </div >
   );
 }
 
