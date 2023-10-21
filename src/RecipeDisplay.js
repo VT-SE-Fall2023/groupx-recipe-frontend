@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './css/RecipeDisplay.css'; // Import the CSS file
+import Ingredient from './Ingredient';
 import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
 
@@ -50,8 +51,12 @@ function RecipeDisplay() {
     };
 
     return (
-        <div className="container" >
+
+        <div className="main container" >
+            <h1 className="main-title">Get Your Recipes</h1>
+            <p className="main-sub">select ingredients and see magic happens</p>
             <div className="ingridient-section" >
+                <Ingredient />
                 <button className="generate-button" onClick={handleGenerateRecipe}>
                     Generate
                 </button>

@@ -1,75 +1,29 @@
-import React, { useRef, useState } from 'react';
-import displayBg from './img/recipe-display-bg.jpg';
+import React from 'react';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 import './App.css';
+import Footer from './Footer';
+import Login from './Login';
 import RecipeDisplay from './RecipeDisplay';
-import Footer from './Footer'; // Import the Footer component
 import Header from './Header';
-import Ingredient from './Ingredient';
 
 function App() {
-  const [recipe, setRecipe] = useState(null);
-  const dummyRecipeData = {
-    recipeName: 'Spaghetti Carbonara',
-    steps: [
-      'Place a large pot of lightly salted water (no more than 1 tablespoon salt) over high heat, and bring to a boil. Fill a large bowl with hot water for serving, and set aside.',
-      'In a mixing bowl, whisk together the eggs, yolks and pecorino and Parmesan. Season with a pinch of salt and generous black pepper.',
-      'Set the water to boil. Meanwhile, heat oil in a large skillet over medium heat, add the pork, and sauté until the fat just renders, on the edge of crispness but not hard. Remove from heat and set aside.',
-      'Add pasta to the water and boil until a bit firmer than al dente. Just before pasta is ready, reheat guanciale in skillet, if needed. Reserve 1 cup of pasta water, then drain pasta and add to the skillet over low heat. Stir for a minute or so.',
-      'Empty serving bowl of hot water. Dry it and add hot pasta mixture. Stir in cheese mixture, adding some reserved pasta water if needed for creaminess. Serve immediately, dressing it with a bit of additional grated pecorino and pepper.'
-    ],
-  };
-
-  let recipeDisplayRef = useRef(null);
-
-  function scrollTo(ref) {
-    if (!ref.current) return;
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  }
-
-  const handleGenerateRecipe = () => {
-    // Replace this with your actual API endpoint
-    // fetch('YOUR_API_ENDPOINT_HERE')
-    //   .then((response) => response.json())
-    //   .then((data) => setRecipe(data))
-    //   .catch((error) => console.error('Error fetching data: ', error));
-    console.log("generate recipe button was clicked");
-    // Simulate an API call by setting the recipe data after a short delay
-    setTimeout(() => {
-      setRecipe(dummyRecipeData);
-    }, 500);
-
-    // Scroll the recipe display into view
-    scrollTo(recipeDisplayRef);
-  };
-
-  const divStyle = {
-    backgroundImage: `url(${displayBg})`,
-    backgroundSize: 'cover', // Adjust as needed
-    backgroundRepeat: 'no-repeat', // Adjust as needed
-    backgroundPosition: 'center bottom', // Adjust as needed
-    height: '1000px',
-    display: 'flex',
-    padding: '5% 20%',
-  };
-
   return (
-    <div className="App">
-      <Header/>
-      <div className="main">
-        <h1 className="main-title">Get Your Recipes</h1>
-        <p className="main-sub">select ingredients and see magic happens</p>
-        <Ingredient />
-        <button className="generate-button" onClick={handleGenerateRecipe}>
-          Generate
-        </button>
-      </div>
 
-      <div style={divStyle} ref={recipeDisplayRef}>
-        <RecipeDisplay recipe={recipe} />
-      </div>
+    <Router>
+      <div className="App">
+        <Header />
 
-      <Footer />
-    </div>
+        <div className="container" >
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<RecipeDisplay />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
