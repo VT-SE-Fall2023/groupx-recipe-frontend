@@ -32,9 +32,16 @@
     gap: 15px;
 }
 
+.default-button {
+    background-color: orange;
+}
+
+.menu-button {
+    background-color: #D9D9D9;
+}
+
 .selection-buttons button{
     font-size: 22px;
-    background-color: #D9D9D9;
     border-radius: 10%;
     border:none;
     width: 100px;
@@ -46,6 +53,3 @@
     background-color: orange;
 }
 
-.selection-buttons button:focus{
-    background-color: orange;
-}
