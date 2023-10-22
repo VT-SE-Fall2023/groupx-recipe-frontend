@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import logo from './logo.svg';
 import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
 import RecipeDisplay from './RecipeDisplay';
@@ -56,8 +55,8 @@ function App() {
     <div className="App">
       <Header/>
       <div className="main">
-        <p>Get Your Recipes</p>
-        <p>select ingredients and see magic happens</p>
+        <p className="main-title">Get Your Recipes</p>
+        <p className="main-sub">select ingredients and see magic happens</p>
         <button className="generate-button" onClick={handleGenerateRecipe}>
           Generate
         </button>

@@ -10,14 +10,12 @@
 .main{
   background-image: url('img/main-bg.png');
   height: 850px;
+;
 }
 
 .App-link {
   color: #61dafb;
 }
-
-
-
 
 .generate-button {
   background-color: var(--primary-color);
@@ -26,4 +24,19 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+
+.main-title{
+  color: var(--primary-color);
+  font-size: 56px;
+  padding-top: 50px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.main-sub{
+  font-size: 28px;
+  margin-top: 0; 
+  padding-top: 10px;
 }
