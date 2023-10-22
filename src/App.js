@@ -55,8 +55,10 @@ function App() {
     <div className="App">
       <Header/>
       <div className="main">
-        <p className="main-title">Get Your Recipes</p>
-        <p className="main-sub">select ingredients and see magic happens</p>
+        <section className="title">
+          <h1 className="main-title">Get Your Recipes</h1>
+          <p className="main-sub">select ingredients and see magic happens</p>
+        </section>
         <button className="generate-button" onClick={handleGenerateRecipe}>
           Generate
         </button>

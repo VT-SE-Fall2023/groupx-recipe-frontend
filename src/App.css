@@ -10,7 +10,6 @@
 .main{
   background-image: url('img/main-bg.png');
   height: 850px;
-;
 }
 
 .App-link {
@@ -31,12 +30,15 @@
   color: var(--primary-color);
   font-size: 56px;
   padding-top: 50px;
+  margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 600;
 }
 
 .main-sub{
   font-size: 28px;
   margin-top: 0; 
-  padding-top: 10px;
+  padding-top: 5px;
 }
