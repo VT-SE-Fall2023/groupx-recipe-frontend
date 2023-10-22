@@ -4,6 +4,7 @@ import './App.css';
 import RecipeDisplay from './RecipeDisplay';
 import Footer from './Footer'; // Import the Footer component
 import Header from './Header';
+import Ingredient from './Ingredient';
 
 function App() {
   const [recipe, setRecipe] = useState(null);
@@ -55,10 +56,9 @@ function App() {
     <div className="App">
       <Header/>
       <div className="main">
-        <section className="title">
-          <h1 className="main-title">Get Your Recipes</h1>
-          <p className="main-sub">select ingredients and see magic happens</p>
-        </section>
+        <h1 className="main-title">Get Your Recipes</h1>
+        <p className="main-sub">select ingredients and see magic happens</p>
+        <Ingredient />
         <button className="generate-button" onClick={handleGenerateRecipe}>
           Generate
         </button>
