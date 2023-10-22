@@ -1,13 +1,10 @@
 import React from 'react';
+import './css/Ingredient.css';
 
 function Ingredient() {
     return (
-        <div className='header'>
-            <p id="logo">GroupX</p>
-            <div className="about-login">
-                <p id='about'>About Us</p>
-                <button id='login-button'>Login</button>
-            </div>
+        <div className='ingredient-selection'>
+
         </div>
     );
 }
