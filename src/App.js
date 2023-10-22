@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
-import logo from './logo.svg';
 import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
 import RecipeDisplay from './RecipeDisplay';
 import Footer from './Footer'; // Import the Footer component
+import Header from './Header';
+import Ingredient from './Ingredient';
 
 function App() {
   const [recipe, setRecipe] = useState(null);
@@ -53,12 +54,15 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Header/>
+      <div className="main">
+        <h1 className="main-title">Get Your Recipes</h1>
+        <p className="main-sub">select ingredients and see magic happens</p>
+        <Ingredient />
         <button className="generate-button" onClick={handleGenerateRecipe}>
           Generate
         </button>
-      </header>
+      </div>
 
       <div style={divStyle} ref={recipeDisplayRef}>
         <RecipeDisplay recipe={recipe} />
