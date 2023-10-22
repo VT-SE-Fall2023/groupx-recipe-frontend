@@ -4,6 +4,7 @@ import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
 import RecipeDisplay from './RecipeDisplay';
 import Footer from './Footer'; // Import the Footer component
+import Header from './Header';
 
 function App() {
   const [recipe, setRecipe] = useState(null);
@@ -53,6 +54,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <button className="generate-button" onClick={handleGenerateRecipe}>
