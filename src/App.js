@@ -55,12 +55,13 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div className="main">
+        <p>Get Your Recipes</p>
+        <p>select ingredients and see magic happens</p>
         <button className="generate-button" onClick={handleGenerateRecipe}>
           Generate
         </button>
-      </header>
+      </div>
 
       <div style={divStyle} ref={recipeDisplayRef}>
         <RecipeDisplay recipe={recipe} />
