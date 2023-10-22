@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    padding-left: 10%;
+    gap: 70%;
+}
+
+.about-login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#logo{
+    size: 24px;
+    font-weight: 800;
+}
+
+#about{
+    size: 24px;
+    padding-right: 5%;
+    width: 100px;
+}
+
+#login-button {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    size: 24px;
+    background-color: #378C84;
+    border-radius: 5%;
+    border: none;
+}
