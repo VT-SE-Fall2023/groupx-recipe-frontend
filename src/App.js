@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import './App.css';
 import Footer from './Footer';
+import Header from './Header';
 import Login from './Login';
 import RecipeDisplay from './RecipeDisplay';
-import Header from './Header';
+
 
 function App() {
   return (
-
     <Router>
       <div className="App">
         <Header />

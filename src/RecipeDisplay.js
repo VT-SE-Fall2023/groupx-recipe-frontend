@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import './css/RecipeDisplay.css'; // Import the CSS file
-import Ingredient from './Ingredient';
-import displayBg from './img/recipe-display-bg.jpg';
 import './App.css';
+import Ingredient from './Ingredient';
+import './css/RecipeDisplay.css'; // Import the CSS file
+import displayBg from './img/recipe-display-bg.jpg';
 
 function RecipeDisplay() {
     const [recipe, setRecipe] = useState(null);
@@ -52,10 +52,10 @@ function RecipeDisplay() {
 
     return (
 
-        <div className="main container" >
-            <h1 className="main-title">Get Your Recipes</h1>
-            <p className="main-sub">select ingredients and see magic happens</p>
-            <div className="ingridient-section" >
+        <div className="container" >
+            <div className="main" >
+                <h1 className="main-title">Get Your Recipes</h1>
+                <p className="main-sub">select ingredients and see magic happens</p>
                 <Ingredient />
                 <button className="generate-button" onClick={handleGenerateRecipe}>
                     Generate
@@ -80,6 +80,7 @@ function RecipeDisplay() {
                 )}
             </div>
         </div>
+
     );
 }
 
