@@ -38,11 +38,11 @@ function Login() {
                     <div className="login-options">
                         <button className="login-google">
                             Login with Google
-                            <img src="google-logo.png" alt="Google Logo" />
+                            <img src={require('./img/google_icon.png')} alt="Google Logo" />
                         </button>
                         <button className="login-apple">
                             Login with Apple
-                            <img src="apple-logo.png" alt="Apple Logo" />
+                            <img src={require('./img/apple_icon.png')} alt="Apple Logo" />
                         </button>
                     </div>
                 </div>
