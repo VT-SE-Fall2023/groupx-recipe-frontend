@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Login from './Login';
 import RecipeDisplay from './RecipeDisplay';
+import Register from './Register';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <div className="container" >
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/" element={<RecipeDisplay />} />
           </Routes>
         </div>
