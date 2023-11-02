@@ -8,7 +8,9 @@ function Header() {
         <div className='header'>
             <p id="logo">GroupX</p>
             <div className="about-login">
-                <p id='about'>About Us</p>
+                <Link id='about' to='/history'>
+                    History
+                </Link>
                 <button id='login-button'>
                     <Link id='login-button' className="login-button-header"
                         to={pathname === '/login' ? '/register' : '/login'}>
