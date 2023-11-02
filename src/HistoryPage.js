@@ -19,6 +19,7 @@ function HistoryPage() {
                             <img src={require('./img/emptystar-icon.png')} alt="Full Star Logo" />
                             <img src={require('./img/emptystar-icon.png')} alt="Full Star Logo" />
                         </div>
+                        <button className='rate-button'>Rate</button>
                     </div>
                 </div>
             </section>
