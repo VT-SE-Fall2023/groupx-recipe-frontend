@@ -34,10 +34,17 @@
     font-size: 32px;
     font-weight: bold;
     font-family: 'Abhaya Libre', serif;
+    margin-bottom: 15px;
 }
 
 
 .functions {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu-date{
+    font-size: 22px;
 }

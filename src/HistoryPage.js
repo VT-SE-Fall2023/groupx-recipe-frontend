@@ -13,7 +13,11 @@ function HistoryPage() {
                     <div className='functions'>
                         <p className='menu-date'>2023/10/14</p>
                         <div className='menu-rate'>
-                        
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Full Star Logo" />
                         </div>
                     </div>
                 </div>
