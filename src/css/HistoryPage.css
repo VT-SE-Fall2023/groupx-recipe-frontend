@@ -35,3 +35,9 @@
     font-weight: bold;
     font-family: 'Abhaya Libre', serif;
 }
+
+
+.functions {
+    display: flex;
+    flex-direction: row;
+}
