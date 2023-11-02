@@ -16,8 +16,36 @@ function HistoryPage() {
                             <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
                             <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
                             <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
-                            <img src={require('./img/emptystar-icon.png')} alt="Full Star Logo" />
-                            <img src={require('./img/emptystar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Empty Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Empty Star Logo" />
+                        </div>
+                        <button className='rate-button'>Rate</button>
+                    </div>
+                </div>
+                <div className='normal-section'>
+                    <h5 className='menu-title'>Lasagna</h5>
+                    <div className='functions'>
+                        <p className='menu-date'>2023/10/07</p>
+                        <div className='menu-rate'>
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Empty Star Logo" />
+                        </div>
+                        <button className='rate-button'>Rate</button>
+                    </div>
+                </div>
+                <div className='normal-section'>
+                    <h5 className='menu-title'>Mac and Cheese</h5>
+                    <div className='functions'>
+                        <p className='menu-date'>2023/10/01</p>
+                        <div className='menu-rate'>
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/fullstar-icon.png')} alt="Full Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Empty Star Logo" />
+                            <img src={require('./img/emptystar-icon.png')} alt="Empty Star Logo" />
                         </div>
                         <button className='rate-button'>Rate</button>
                     </div>
