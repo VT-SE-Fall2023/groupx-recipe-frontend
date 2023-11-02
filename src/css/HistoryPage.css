@@ -1,3 +1,22 @@
 .history-page{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title {
+    color: var(--primary-color);
+    font-size: 56px;
+    padding-top: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 600;
+}
+
+#expand-section {
+    height: 900px;
+    width: 1000px;
 }
