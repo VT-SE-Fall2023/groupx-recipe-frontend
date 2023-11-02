@@ -1,0 +1,90 @@
+.history-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F1F1F1;
+}
+
+.main-title {
+    color: var(--primary-color);
+    font-size: 56px;
+    padding-top: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+
+.menus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.normal-section {
+    padding-left: 100px;
+    text-align: left;
+    height: 200px;
+    width: 1000px;
+    background-color: rgb(255,255,255,0.3);
+    border-radius: 3%;
+}
+
+.expand-section {
+    padding-left: 100px;
+    text-align: left;
+    height: 900px;
+    width: 1000px;
+    background-color: rgb(255,255,255,0.3);
+    border-radius: 3%;
+    border-color: gray;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.menu-title{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Abhaya Libre', serif;
+    margin-bottom: 15px;
+    margin-top: 40px;
+}
+
+
+.functions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu-date{
+    font-size: 22px;
+}
+
+.rate-button{
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    font-size: 18px;
+    background-color: #378C84;
+    border-radius: 5%;
+    border: none;
+}
+
+
+.menu-steps {
+    max-width: 900px;
+    font-size: 22px;
+}
+
+.menu-ingredients {
+    max-width: 900px;
+    font-size: 22px;
+}

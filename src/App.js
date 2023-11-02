@@ -7,6 +7,7 @@ import Header from './Header';
 import Login from './Login';
 import RecipeDisplay from './RecipeDisplay';
 import Register from './Register';
+import HistoryPage from './HistoryPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<RecipeDisplay />} />
+            <Route path="/history" element={<HistoryPage />} />
           </Routes>
         </div>
 

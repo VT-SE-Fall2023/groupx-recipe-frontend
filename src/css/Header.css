@@ -18,12 +18,16 @@
 #logo{
     size: 24px;
     font-weight: 800;
+    text-decoration: none;
+    color: inherit;
 }
 
 #about{
     size: 24px;
     padding-right: 5%;
     width: 100px;
+    text-decoration: none;
+    color: inherit;
 }
 
 #login-button {
