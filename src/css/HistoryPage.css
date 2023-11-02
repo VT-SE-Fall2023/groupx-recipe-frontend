@@ -15,9 +15,23 @@
     padding-bottom: 0;
     font-family: 'Abhaya Libre', serif;
     font-weight: 600;
+    padding-bottom: 30px;
 }
 
-#expand-section {
+.expand-section {
+    padding-left: 100px;
+    text-align: left;
     height: 900px;
     width: 1000px;
+    background-color: rgb(255,255,255,0.3);
+    border-radius: 3%;
+    border-color: gray;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.menu-title{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Abhaya Libre', serif;
 }
