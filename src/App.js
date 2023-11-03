@@ -8,6 +8,7 @@ import Login from './Login';
 import RecipeDisplay from './RecipeDisplay';
 import Register from './Register';
 import HistoryPage from './HistoryPage';
+import ReactRegistrationSuccess from './RegistrationSuccess';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/registration-success" element={<ReactRegistrationSuccess />} />
             <Route path="/" element={<RecipeDisplay />} />
             <Route path="/history" element={<HistoryPage />} />
           </Routes>

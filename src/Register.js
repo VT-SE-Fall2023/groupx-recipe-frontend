@@ -1,10 +1,14 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './css/Register.css';
 
 function Register() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmedPassword, setConfirmedPassword] = useState('');
+    const [passwordsMatch, setPasswordsMatch] = useState(true);
+    const navigate = useNavigate();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
@@ -16,8 +20,26 @@ function Register() {
     };
 
     const handleRegister = () => {
-        // Implement your register logic here
-        console.log('Regsiter with:', username, password);
+        // Check if passwords match
+        if (password !== confirmedPassword) {
+            // Passwords don't match
+            setPasswordsMatch(false);
+            console.log('Passwords do not match');
+        } else {
+            setPasswordsMatch(true);
+            // Perform the HTTP POST request to the API
+            axios.post('http://localhost:3000/user/register', { email: email, password: password })
+                .then((response) => {
+                    // Handle the success response, e.g., redirect to a login page
+                    console.log('Registration successful:', response.data);
+                    // Registration successful, redirect to the success page
+                    navigate('/registration-success');
+                })
+                .catch((error) => {
+                    // Handle the error, e.g., display an error message
+                    console.error('Registration failed:', error);
+                });
+        }
     };
 
     return (
@@ -31,9 +53,9 @@ function Register() {
                         <h4 className="welcome-sub-text">Join us to save your favorite recipe!</h4>
                         <input
                             type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <input
                             type="password"
@@ -47,9 +69,10 @@ function Register() {
                             value={confirmedPassword}
                             onChange={handleConfirmedPasswordChange}
                         />
-                        <button className="register-button" onClick={handleRegister}>
+                        <button className="register-button" onClick={handleRegister} disabled={!passwordsMatch}>
                             Register
                         </button>
+                        {!passwordsMatch && <p className="password-mismatch-error">Passwords do not match</p>}
                         <div className="register-options">
                             <button className="register-google">
                                 Register with Google
