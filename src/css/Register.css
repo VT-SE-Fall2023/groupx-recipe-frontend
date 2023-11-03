@@ -70,6 +70,12 @@ input {
     margin: 1em 0;
 }
 
+.password-mismatch-error {
+    color: red;
+    font-size: 1em;
+    margin: 0
+}
+
 .register-google,
 .register-apple {
     background-color: #fff;

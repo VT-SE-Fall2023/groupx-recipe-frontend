@@ -5,6 +5,7 @@ function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmedPassword, setConfirmedPassword] = useState('');
+    const [passwordsMatch, setPasswordsMatch] = useState(true);
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
@@ -16,8 +17,15 @@ function Register() {
     };
 
     const handleRegister = () => {
-        // Implement your register logic here
-        console.log('Regsiter with:', username, password);
+        // Check if passwords match
+        if (password !== confirmedPassword) {
+            // Passwords don't match
+            setPasswordsMatch(false);
+            console.log('Passwords do not match');
+        } else {
+            setPasswordsMatch(true);
+            console.log('Registering with username: ' + username + ' and password: ' + password);
+        }
     };
 
     return (
@@ -47,9 +55,10 @@ function Register() {
                             value={confirmedPassword}
                             onChange={handleConfirmedPasswordChange}
                         />
-                        <button className="register-button" onClick={handleRegister}>
+                        <button className="register-button" onClick={handleRegister} disabled={!passwordsMatch}>
                             Register
                         </button>
+                        {!passwordsMatch && <p className="password-mismatch-error">Passwords do not match</p>}
                         <div className="register-options">
                             <button className="register-google">
                                 Register with Google
