@@ -1,18 +1,47 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
         setPassword(event.target.value);
     };
 
-    const handleLogin = () => {
-        // Implement your login logic here
-        console.log('Logging in with:', username, password);
+    const handleLogin = async () => {
+        const apiUrl = 'http://localhost:3000/user/login'; // Replace with your API base URL
+        const userData = {
+            email: username,
+            password: password,
+        };
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const token = data.token;
+                console.log('Logged in with token:', token);
+
+                // Store the token in localStorage
+                localStorage.setItem('token', token);
+                navigate('/');
+            } else {
+                // Handle login errors, e.g., incorrect credentials
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
     };
 
     return (
