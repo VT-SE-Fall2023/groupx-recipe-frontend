@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
@@ -11,8 +13,6 @@ function Login() {
     };
 
     const handleLogin = async () => {
-        // Implement your login logic here
-        console.log('Logging in with:', username, password);
         const apiUrl = 'http://localhost:3000/user/login'; // Replace with your API base URL
         const userData = {
             email: username,
@@ -34,6 +34,7 @@ function Login() {
 
                 // Store the token in localStorage
                 localStorage.setItem('token', token);
+                navigate('/');
             } else {
                 // Handle login errors, e.g., incorrect credentials
                 console.error('Login failed');
