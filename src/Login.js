@@ -10,9 +10,37 @@ function Login() {
         setPassword(event.target.value);
     };
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         // Implement your login logic here
         console.log('Logging in with:', username, password);
+        const apiUrl = 'http://localhost:3000/user/login'; // Replace with your API base URL
+        const userData = {
+            email: username,
+            password: password,
+        };
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const token = data.token;
+                console.log('Logged in with token:', token);
+
+                // Store the token in localStorage
+                localStorage.setItem('token', token);
+            } else {
+                // Handle login errors, e.g., incorrect credentials
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
     };
 
     return (
