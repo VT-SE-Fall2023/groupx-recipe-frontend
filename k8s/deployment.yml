@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rg-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rg-frontend
+  template:
+    metadata:
+      labels:
+        app: rg-frontend
+    spec:
+      containers:
+        - name: rg-frontend
+          image: tp6han/rg-frontend
+          env:
+          - name: REACT_APP_API_URL
+            value: "http://rg-backend-service:3000"
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
