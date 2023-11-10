@@ -28,7 +28,8 @@ function Register() {
         } else {
             setPasswordsMatch(true);
             // Perform the HTTP POST request to the API
-            axios.post('http://localhost:3000/user/register', { email: email, password: password })
+            const apiUrl = `${process.env.REACT_APP_API_URL}/user/register`;
+            axios.post(apiUrl, { email: email, password: password })
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Registration successful:', response.data);

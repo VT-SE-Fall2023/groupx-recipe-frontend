@@ -13,7 +13,8 @@ function Login() {
     };
 
     const handleLogin = async () => {
-        const apiUrl = 'http://localhost:3000/user/login'; // Replace with your API base URL
+        const apiUrl = process.env.REACT_APP_API_URL + "/user/login";
+
         const userData = {
             email: username,
             password: password,
