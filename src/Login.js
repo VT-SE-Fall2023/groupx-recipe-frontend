@@ -7,7 +7,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const {token, handleLoginToken} = useTokenContext();
+    const {handleLoginToken} = useTokenContext();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here

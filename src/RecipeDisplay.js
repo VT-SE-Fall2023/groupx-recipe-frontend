@@ -4,6 +4,7 @@ import Ingredient from './Ingredient';
 import './css/RecipeDisplay.css'; // Import the CSS file
 import displayBg from './img/recipe-display-bg.jpg';
 import { useIngredientContext } from './context/IngredientContext';
+import { useTokenContext } from './context/TokenContext';
 
 import axios from 'axios';
 
@@ -11,6 +12,7 @@ import axios from 'axios';
 function RecipeDisplay() {
     const { selectedItems} = useIngredientContext();
     const [recipe, setRecipe] = useState(null);
+    const {token} = useTokenContext();
     const dummyRecipeData = {
         recipeName: 'Spaghetti Carbonara',
         steps: [
@@ -40,8 +42,20 @@ function RecipeDisplay() {
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
             const apiUrl = `${process.env.REACT_APP_API_URL}/recipe`;
-            axios.get(apiUrl,{ingredients: selectedItems})
-            setRecipe(dummyRecipeData);
+            axios.get(apiUrl,{ingredients: selectedItems, token: token})
+                .then((response) => {
+                    // Handle the success response, e.g., redirect to a login page
+                    console.log('Registration successful:', response.data);
+                    // setRecipe({
+                    //    recipeName: response.data.recipeName,
+                    //    steps: response.data.recipeSteps
+                    // });
+                })
+                .catch((error) => {
+                    // Handle the error, e.g., display an error message
+                    console.error('Registration failed:', error);
+                });
+                setRecipe(dummyRecipeData);
         }, 500);
 
         // Scroll the recipe display into view
