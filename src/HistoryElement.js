@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './css/HistoryElement.css';
-import Rating from './RatingElement';
 
 //props include: name, date, rate, ingredients, steps
 function HistoryElement(props) {
