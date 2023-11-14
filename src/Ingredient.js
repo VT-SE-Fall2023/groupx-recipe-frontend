@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState} from 'react';
 import './css/Ingredient.css';
 import { useIngredientContext } from './context/IngredientContext';
 
