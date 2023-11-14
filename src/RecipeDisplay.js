@@ -13,6 +13,7 @@ function RecipeDisplay() {
     const { selectedItems} = useIngredientContext();
     const [recipe, setRecipe] = useState(null);
     const {token} = useTokenContext();
+
     const dummyRecipeData = {
         recipeName: 'Spaghetti Carbonara',
         steps: [
@@ -41,11 +42,12 @@ function RecipeDisplay() {
         console.log(selectedItems)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
-            const apiUrl = `${process.env.REACT_APP_API_URL}/recipe`;
-            axios.get(apiUrl,{ingredients: selectedItems, token: token})
+            const REACT_APP_API_URL= "https://api.rg.discovery.cs.vt.edu";
+            const apiUrl = `${REACT_APP_API_URL}/recipe`;
+            axios.post(apiUrl,{ingredients: selectedItems, token: token})
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
-                    console.log('Registration successful:', response.data);
+                    console.log('Recipe generated', response.data);
                     // setRecipe({
                     //    recipeName: response.data.recipeName,
                     //    steps: response.data.recipeSteps
@@ -53,7 +55,7 @@ function RecipeDisplay() {
                 })
                 .catch((error) => {
                     // Handle the error, e.g., display an error message
-                    console.error('Registration failed:', error);
+                    console.error('Recipe generation failed:', error);
                 });
                 setRecipe(dummyRecipeData);
         }, 500);
