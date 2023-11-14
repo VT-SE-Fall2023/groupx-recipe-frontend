@@ -30,8 +30,8 @@ function Ingredient() {
                 <div className='selection-buttons'>
                     {veggies.map((item)=>(
                         <button 
-                            className={findItem(selectedItems, item) ? 'selected-button' : 'menu-button'}
-                            onClick={()=>handleButtonClick(item)}>
+                            onClick={()=>handleButtonClick(item)}
+                            style={{ backgroundColor: findItem(selectedItems, item) ? 'orange' : '#D9D9D9' }}>
                             {item}
                         </button>
                     ))}
@@ -41,7 +41,8 @@ function Ingredient() {
                     {meats.map((item)=>(
                         <button 
                             className='menu-button'
-                            onClick={()=>handleButtonClick(item)}>
+                            onClick={()=>handleButtonClick(item)}
+                            style={{ backgroundColor: findItem(selectedItems, item) ? 'orange' : '#D9D9D9' }}>
                             {item}
                         </button>
                     ))}
@@ -51,7 +52,8 @@ function Ingredient() {
                     {others.map((item)=>(
                         <button 
                         className='menu-button'
-                        onClick={()=>handleButtonClick(item)}>
+                        onClick={()=>handleButtonClick(item)}
+                        >
                             {item}
                         </button>
                     ))}
