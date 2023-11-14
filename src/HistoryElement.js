@@ -17,7 +17,7 @@ function HistoryElement(props) {
         transition: 'height 0.5s',
     };
 
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(props.rating);
     const handleStarClick = (clickedRating) => {
         if (isExpanded){
             setRating(clickedRating);

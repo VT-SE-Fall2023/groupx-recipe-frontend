@@ -14,6 +14,8 @@ function HistoryPage() {
                     name="Spaghetti Carbonara"
                     date="2023/10/14"
                     ingredients={["Eggs", "Balcon", "Garlic"]}
+                    instructions={{}}
+                    rating={3}
                 ></HistoryElement>
                 <div className='expand-section'>
                     <h5 className='menu-title'>Spaghetti Carbonara</h5>
