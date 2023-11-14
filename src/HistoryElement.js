@@ -29,6 +29,10 @@ function HistoryElement(props) {
         } 
     };
 
+    const handleRateClick = () => {
+        console.log(rating)
+    }
+
     const renderStars = () => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
@@ -49,7 +53,7 @@ function HistoryElement(props) {
                         <div className="rating">
                             {renderStars()}
                         </div>
-                        <button className='rate-button'>Rate</button>
+                        <button className='rate-button' onClick={handleRateClick}>Rate</button>
                         <button className='expand-button' onClick={handleToggle} >expand</button>
                     </div>
                     {isExpanded 
