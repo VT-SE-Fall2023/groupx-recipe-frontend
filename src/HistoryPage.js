@@ -80,7 +80,11 @@ function HistoryPage() {
                         <button className='rate-button'>Rate</button>
                     </div>
                 </div>
-                <HistoryElement></HistoryElement>
+                <HistoryElement 
+                    name="Spaghetti Carbonara"
+                    date="2023/10/14"
+                    ingredients={["Eggs", "Balcon", "Garlic"]}
+                ></HistoryElement>
             </section>
         </div>
     );
