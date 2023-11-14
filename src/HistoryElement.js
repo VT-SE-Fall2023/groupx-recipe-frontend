@@ -18,13 +18,33 @@ function HistoryElement(props) {
         transition: 'height 0.5s',
     };
 
+    const [rating, setRating] = useState(0);
+    const handleStarClick = (clickedRating) => {
+        if (isExpanded){
+            setRating(clickedRating);
+        } 
+    };
+
+    const renderStars = () => {
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+        const starImg = i <= rating
+            ? <img key={i} src={require('./img/fullstar-icon.png')} alt="Full Star Logo" onClick={() => handleStarClick(i)} />
+            : <img key={i} src={require('./img/emptystar-icon.png')} alt="Empty Star Logo" onClick={() => handleStarClick(i)} />;
+        stars.push(starImg);
+        }
+        return stars;
+    };
+
     return (
 
         <div className='history-element' style={containerStyle}>
                     <h5 className='menu-title'>{props.name}</h5>
                     <div className='functions'>
                         <p className='menu-date'>{props.date}</p>
-                        <Rating expand= {isExpanded} />
+                        <div className="rating">
+                            {renderStars()}
+                        </div>
                         <button className='rate-button'>Rate</button>
                         <button className='expand-button' onClick={handleToggle} >expand</button>
                     </div>
