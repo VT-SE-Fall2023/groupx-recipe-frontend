@@ -21,3 +21,18 @@ test('input fields update state', () => {
     expect(confirmPasswordInput.value).toBe('test123');
 });
 
+test('displays error for mismatched passwords', () => {
+    const { getByText, getByPlaceholderText } = render(<Register />);
+    const passwordInput = getByPlaceholderText('Password');
+    const confirmPasswordInput = getByPlaceholderText('Confirm Password');
+    const registerButton = getByText('Register');
+
+    fireEvent.change(passwordInput, { target: { value: 'test123' } });
+    fireEvent.change(confirmPasswordInput, { target: { value: 'test1234' } });
+    fireEvent.click(registerButton);
+
+    expect(getByText('Passwords do not match')).toBeInTheDocument();
+});
+
+
+
