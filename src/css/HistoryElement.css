@@ -4,3 +4,38 @@
     background-color: rgb(255,255,255,0.3);
     border-radius: 3%;
 }
+
+.rate-button{
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    font-size: 18px;
+    background-color: #378C84;
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-steps {
+    max-width: 900px;
+    font-size: 22px;
+}
+
+.menu-ingredients {
+    max-width: 900px;
+    font-size: 22px;
+}
+
+.expand-button {
+    padding: 8px 10px 8px 10px;
+    background-color:grey;
+    color: white;
+    cursor: pointer;
+    border-radius: 5%;
+    border: none;
+}
+
+.rating-star {
+    cursor: pointer;
+}
