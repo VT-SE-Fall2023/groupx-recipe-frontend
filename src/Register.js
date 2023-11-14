@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import './css/Register.css';
 
 function Register() {
@@ -34,7 +34,7 @@ function Register() {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Registration successful:', response.data);
                     // Registration successful, redirect to the success page
-                    BrowserRouter('/registration-success');
+                    redirect('/registration-success');
                 })
                 .catch((error) => {
                     // Handle the error, e.g., display an error message
