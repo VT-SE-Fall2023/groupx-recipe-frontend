@@ -43,7 +43,7 @@ function Ingredient() {
                         <button 
                         className='menu-button'
                         onClick={()=>handleButtonClick(item)}
-                        >
+                        style={{ backgroundColor: findItem(selectedItems, item) ? 'orange' : '#D9D9D9' }}>
                             {item}
                         </button>
                     ))}
