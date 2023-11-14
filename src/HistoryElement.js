@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 //props include: recipeName, date, rate, ingredients, steps
-function HistoryElement(props) {
+function HistoryElement() {
 
     //check if clicked expand or not
     const [isExpanded, setIsExpanded] = useState(false);
@@ -10,14 +10,10 @@ function HistoryElement(props) {
     const containerStyle = {
         width: '1000px',
         height: isExpanded ? '900px' : '200px',
-        backgroundColor: 'lightblue',
-        border: '1px solid #ccc',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        border: isExpanded ? '2px solid gray' : 'none',
         cursor: 'pointer',
-        transition: 'width 0.5s, height 0.5s'
-      };
+        transition: 'height 0.5s',
+    };
 
     return (
 
