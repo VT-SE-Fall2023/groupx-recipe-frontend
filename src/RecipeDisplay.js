@@ -5,6 +5,8 @@ import './css/RecipeDisplay.css'; // Import the CSS file
 import displayBg from './img/recipe-display-bg.jpg';
 import { useIngredientContext } from './context/IngredientContext';
 
+import axios from 'axios';
+
 
 function RecipeDisplay() {
     const { selectedItems} = useIngredientContext();
@@ -37,6 +39,8 @@ function RecipeDisplay() {
         console.log(selectedItems)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
+            const apiUrl = `${process.env.REACT_APP_API_URL}/recipe`;
+            axios.get(apiUrl,{ingredients: selectedItems})
             setRecipe(dummyRecipeData);
         }, 500);
 
