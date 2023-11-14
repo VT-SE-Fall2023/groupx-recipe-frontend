@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './css/HistoryPage.css';
+import HistoryElement from './HistoryElement';
 
 
 
@@ -79,6 +80,7 @@ function HistoryPage() {
                         <button className='rate-button'>Rate</button>
                     </div>
                 </div>
+                <HistoryElement></HistoryElement>
             </section>
         </div>
     );
