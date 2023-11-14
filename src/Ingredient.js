@@ -1,6 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import './css/Ingredient.css';
+
 
 function Ingredient() {
     //useState for storing selected items
