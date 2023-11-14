@@ -10,28 +10,31 @@ import Register from './Register';
 import HistoryPage from './HistoryPage';
 import ReactRegistrationSuccess from './RegistrationSuccess';
 import { IngredientProvider } from './context/IngredientContext';
+import { TokenProvider } from './context/TokenContext';
 
 
 function App() {
   return (
     <IngredientProvider>
-      <Router>
-        <div className="App">
-          <Header />
+      <TokenProvider>
+        <Router>
+          <div className="App">
+            <Header />
 
-          <div className="container" >
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/registration-success" element={<ReactRegistrationSuccess />} />
-              <Route path="/" element={<RecipeDisplay />} />
-              <Route path="/history" element={<HistoryPage />} />
-            </Routes>
+            <div className="container" >
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/registration-success" element={<ReactRegistrationSuccess />} />
+                <Route path="/" element={<RecipeDisplay />} />
+                <Route path="/history" element={<HistoryPage />} />
+              </Routes>
+            </div>
+
+            <Footer />
           </div>
-
-          <Footer />
-        </div>
-      </Router>
+        </Router>
+      </TokenProvider>
     </IngredientProvider>
   );
 }
