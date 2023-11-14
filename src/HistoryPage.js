@@ -4,7 +4,6 @@ import './css/HistoryPage.css';
 import HistoryElement from './HistoryElement';
 
 
-
 function HistoryPage() {
 
     return (

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-const Rating = () => {
+const Rating = ({isExpanded}) => {
   const [rating, setRating] = useState(0);
   const handleStarClick = (clickedRating) => {
-    setRating(clickedRating);
+    if (isExpanded){
+        setRating(clickedRating);
+    } 
   };
 
   const renderStars = () => {
