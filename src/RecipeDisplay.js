@@ -3,8 +3,11 @@ import './App.css';
 import Ingredient from './Ingredient';
 import './css/RecipeDisplay.css'; // Import the CSS file
 import displayBg from './img/recipe-display-bg.jpg';
+import { useIngredientContext } from './context/IngredientContext';
+
 
 function RecipeDisplay() {
+    const { selectedItems, handleButtonClick } = useIngredientContext();
     const [recipe, setRecipe] = useState(null);
     const dummyRecipeData = {
         recipeName: 'Spaghetti Carbonara',

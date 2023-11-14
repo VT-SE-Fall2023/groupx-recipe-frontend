@@ -4,7 +4,6 @@ import { useIngredientContext } from './context/IngredientContext';
 
 
 function Ingredient() {
-    //useState for storing selected items
     const { selectedItems, handleButtonClick } = useIngredientContext();
     const veggies = ["carrot", "potato", "tomato", "avacado", "spanich"];
     const meats = ["beef", "pork", "chicken", "salmon", "turkey"];
