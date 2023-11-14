@@ -34,6 +34,7 @@ function RecipeDisplay() {
         //   .then((data) => setRecipe(data))
         //   .catch((error) => console.error('Error fetching data: ', error));
         console.log("generate recipe button was clicked");
+        console.log(selectedItems)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
             setRecipe(dummyRecipeData);
