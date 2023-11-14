@@ -44,7 +44,8 @@ function RecipeDisplay() {
         setTimeout(() => {
             const REACT_APP_API_URL= "https://api.rg.discovery.cs.vt.edu";
             const apiUrl = `${REACT_APP_API_URL}/recipe`;
-            axios.post(apiUrl,{ingredients: selectedItems, token: token})
+            if (token) {
+                axios.post(apiUrl,{ingredients: selectedItems, token: token})
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Recipe generated', response.data);
@@ -58,6 +59,22 @@ function RecipeDisplay() {
                     console.error('Recipe generation failed:', error);
                 });
                 setRecipe(dummyRecipeData);
+            } else {
+                axios.post(apiUrl,{ingredients: selectedItems})
+                .then((response) => {
+                    // Handle the success response, e.g., redirect to a login page
+                    console.log('Recipe generated', response.data);
+                    // setRecipe({
+                    //    recipeName: response.data.recipeName,
+                    //    steps: response.data.recipeSteps
+                    // });
+                })
+                .catch((error) => {
+                    // Handle the error, e.g., display an error message
+                    console.error('Recipe generation failed:', error);
+                });
+                setRecipe(dummyRecipeData);
+            }
         }, 500);
 
         // Scroll the recipe display into view
