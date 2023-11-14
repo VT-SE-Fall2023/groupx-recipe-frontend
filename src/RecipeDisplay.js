@@ -7,7 +7,7 @@ import { useIngredientContext } from './context/IngredientContext';
 
 
 function RecipeDisplay() {
-    const { selectedItems, handleButtonClick } = useIngredientContext();
+    const { selectedItems} = useIngredientContext();
     const [recipe, setRecipe] = useState(null);
     const dummyRecipeData = {
         recipeName: 'Spaghetti Carbonara',
