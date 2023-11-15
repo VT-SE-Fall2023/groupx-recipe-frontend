@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './css/Register.css';
 
 function Register() {
@@ -8,7 +8,7 @@ function Register() {
     const [password, setPassword] = useState('');
     const [confirmedPassword, setConfirmedPassword] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
@@ -34,7 +34,7 @@ function Register() {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Registration successful:', response.data);
                     // Registration successful, redirect to the success page
-                    redirect('/registration-success');
+                    navigate('/registration-success');
                 })
                 .catch((error) => {
                     // Handle the error, e.g., display an error message

@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.23.3",
     "@testing-library/react": "^14.1.0",
     "react-test-renderer": "^18.2.0"
   }

@@ -2,13 +2,14 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import React from 'react';
 import { act } from 'react-dom/test-utils'; // Import act from react-dom for asynchronous actions
+import { BrowserRouter as Router } from 'react-router-dom';
 import Register from './Register';
 test('renders Register component', () => {
-    render(<Register />);
+    render(<Router><Register /></Router>);
 });
 
 test('input fields update state', () => {
-    const { getByPlaceholderText } = render(<Register />);
+    const { getByPlaceholderText } = render(<Router><Register /></Router>);
     const emailInput = getByPlaceholderText('Email');
     const passwordInput = getByPlaceholderText('Password');
     const confirmPasswordInput = getByPlaceholderText('Confirm Password');
@@ -23,7 +24,7 @@ test('input fields update state', () => {
 });
 
 test('displays error for mismatched passwords', () => {
-    const { getByText, getByPlaceholderText } = render(<Register />);
+    const { getByText, getByPlaceholderText } = render(<Router><Register /></Router>);
     const passwordInput = getByPlaceholderText('Password');
     const confirmPasswordInput = getByPlaceholderText('Confirm Password');
     const registerButton = getByText('Register');
@@ -39,7 +40,7 @@ jest.mock('axios');
 
 
 test('after click register button, should request api once', async () => {
-    const { getByText, getByPlaceholderText } = render(<Register />);
+    const { getByText, getByPlaceholderText } = render(<Router><Register /></Router>);
 
     const emailInput = getByPlaceholderText('Email');
     const passwordInput = getByPlaceholderText('Password');
@@ -60,8 +61,8 @@ test('after click register button, should request api once', async () => {
 });
 
 
-test.skip('redirects to /registration-success on successful registration', async () => {
-    const { getByText, getByPlaceholderText } = render(<Register />);
+test('redirects to /registration-success on successful registration', async () => {
+    const { getByText, getByPlaceholderText } = render(<Router><Register /></Router>);
 
     const emailInput = getByPlaceholderText('Email');
     const passwordInput = getByPlaceholderText('Password');
@@ -79,7 +80,6 @@ test.skip('redirects to /registration-success on successful registration', async
     });
 
     await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
-    // TODO: after solving CROS problem with backend, check this test
     await waitFor(() => {
         // Assert that the component has redirected to '/registration-success'
         expect(window.location.pathname).toBe('/registration-success');
