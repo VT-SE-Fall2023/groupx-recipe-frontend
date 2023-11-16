@@ -1,34 +1,52 @@
 import React from 'react';
 import './css/Ingredient.css';
+import { useIngredientContext } from './context/IngredientContext';
+
 
 function Ingredient() {
+    const { selectedItems, handleButtonClick } = useIngredientContext();
+    const veggies = ["carrot", "potato", "tomato", "avacado", "spanich"];
+    const meats = ["beef", "pork", "chicken", "salmon", "turkey"];
+    const others = ["onion", "egg", "rice", "garlic", "cheese"];
+
+    //function to check whether the ingredient is selected
+    const findItem = (selectedItems, ingredient) => selectedItems.find((item)=>item === ingredient)
+
     return (
         <div className='ingredient-selection'>
             <section className='rectangle'></section>
             <section className='button-section'>
                 <h4 className="selection-title">Vegetables and Greens</h4>
                 <div className='selection-buttons'>
-                    <button className='menu-button'>carrot</button>
-                    <button className='menu-button'>potato</button>
-                    <button className='menu-button'>tomato</button>
-                    <button className='menu-button'>avacado</button>
-                    <button className='menu-button'>spanich</button>
+                    {veggies.map((item)=>(
+                        <button 
+                            onClick={()=>handleButtonClick(item)}
+                            style={{ backgroundColor: findItem(selectedItems, item) ? 'orange' : '#D9D9D9' }}>
+                            {item}
+                        </button>
+                    ))}
                 </div>
                 <h4 className="selection-title">Meats</h4>
                 <div className='selection-buttons'>
-                    <button className='menu-button'>beef</button>
-                    <button className='default-button'>pork</button>
-                    <button className='menu-button'>chicken</button>
-                    <button className='menu-button'>salmon</button>
-                    <button className='menu-button'>turkey</button>
+                    {meats.map((item)=>(
+                        <button 
+                            className='menu-button'
+                            onClick={()=>handleButtonClick(item)}
+                            style={{ backgroundColor: findItem(selectedItems, item) ? 'orange' : '#D9D9D9' }}>
+                            {item}
+                        </button>
+                    ))}
                 </div>
                 <h4 className="selection-title">Others</h4>
                 <div className='selection-buttons'>
-                    <button className='menu-button'>onion</button>
-                    <button className='default-button'>egg</button>
-                    <button className='menu-button'>rice</button>
-                    <button className='menu-button'>garlic</button>
-                    <button className='default-button'>cheese</button>
+                    {others.map((item)=>(
+                        <button 
+                        className='menu-button'
+                        onClick={()=>handleButtonClick(item)}
+                        style={{ backgroundColor: findItem(selectedItems, item) ? 'orange' : '#D9D9D9' }}>
+                            {item}
+                        </button>
+                    ))}
                 </div>
             </section>
         </div>
