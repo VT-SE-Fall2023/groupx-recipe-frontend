@@ -42,7 +42,7 @@ function RecipeDisplay() {
         console.log(selectedItems)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
-            const REACT_APP_API_URL= "https://api.rg.discovery.cs.vt.edu";
+            const REACT_APP_API_URL= "https://rg.discovery.cs.vt.edu/api/v1";
             const apiUrl = `${REACT_APP_API_URL}/recipe`;
             if (token) {
                 axios.post(apiUrl,{ingredients: selectedItems, token: token})
@@ -64,16 +64,13 @@ function RecipeDisplay() {
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Recipe generated', response.data);
-                    // setRecipe({
-                    //    recipeName: response.data.recipeName,
-                    //    steps: response.data.recipeSteps
-                    // });
+                    setRecipe(response.data);
                 })
                 .catch((error) => {
                     // Handle the error, e.g., display an error message
                     console.error('Recipe generation failed:', error);
                 });
-                setRecipe(dummyRecipeData);
+                //setRecipe(dummyRecipeData);
             }
         }, 500);
 
@@ -108,8 +105,8 @@ function RecipeDisplay() {
                     <div
                         className={`recipe-display ${recipe ? 'active' : ''}`}
                     >
-                        <h2 className='recipe-name'>{recipe.recipeName}</h2>
-                        {recipe.steps.map((step, index) => (
+                        <h2 className='recipe-name'>{recipe.name}</h2>
+                        {recipe.instructions.map((step, index) => (
                             <div key={`step+${index + 1}`}>
                                 <h3>Step {index + 1}</h3>
                                 <p>{step}</p>
