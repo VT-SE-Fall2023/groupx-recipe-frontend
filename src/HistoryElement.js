@@ -11,7 +11,7 @@ function HistoryElement(props) {
     //map only for array, so have to use Object.entries to convert
     const recipeSteps = Object.entries(props.instructions).map(([step,description])=>
         <p className='menu-steps'>
-            {step}<br/>
+            Step {parseInt(step)+1}<br/>
             {description}
         </p>
     )
