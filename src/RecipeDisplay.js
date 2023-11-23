@@ -4,7 +4,7 @@ import Ingredient from './Ingredient';
 import './css/RecipeDisplay.css'; // Import the CSS file
 import displayBg from './img/recipe-display-bg.jpg';
 import { useIngredientContext } from './context/IngredientContext';
-import { useTokenContext } from './context/EmailContext';
+import { useEmailContext } from './context/EmailContext';
 
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ import axios from 'axios';
 function RecipeDisplay() {
     const { selectedItems} = useIngredientContext();
     const [recipe, setRecipe] = useState(null);
-    const {token} = useTokenContext();
+    const {email} = useEmailContext();
 
     // const dummyRecipeData = {
     //     recipeName: 'Spaghetti Carbonara',
@@ -39,13 +39,13 @@ function RecipeDisplay() {
         //   .then((data) => setRecipe(data))
         //   .catch((error) => console.error('Error fetching data: ', error));
         console.log("generate recipe button was clicked");
-        console.log(selectedItems, token)
+        console.log(selectedItems, email)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
             const REACT_APP_API_URL= "https://rg.discovery.cs.vt.edu/api/v1";
             const apiUrl = `${REACT_APP_API_URL}/recipe`;
-            if (token) {
-                axios.post(apiUrl,{ingredients: selectedItems, email: token})
+            if (email) {
+                axios.post(apiUrl,{ingredients: selectedItems, email: email})
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Recipe generated', response.data);
