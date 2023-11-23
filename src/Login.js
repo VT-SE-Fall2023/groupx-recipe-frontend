@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
 import { useEmailContext } from './context/EmailContext';
-import { setUserHistory } from './context/HistoryContext'
+import { useHistoryContext } from './context/HistoryContext'
 import axios from 'axios';
 
 function Login() {
@@ -10,6 +10,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const {handleLoginEmail} = useEmailContext();
+    const {setUserHistory} = useHistoryContext();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
