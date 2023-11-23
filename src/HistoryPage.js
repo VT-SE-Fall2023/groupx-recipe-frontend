@@ -1,10 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import './css/HistoryPage.css';
 import HistoryElement from './HistoryElement';
+import { useEmailContext } from './context/EmailContext';
 
+import axios from 'axios';
 
 function HistoryPage() {
+    const {email} = useEmailContext();
+    const [history, setHistory] = useState([]);
+    
 
     return (
         <div className='history-page'>
