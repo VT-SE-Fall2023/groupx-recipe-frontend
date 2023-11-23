@@ -10,13 +10,13 @@ import Register from './Register';
 import HistoryPage from './HistoryPage';
 import ReactRegistrationSuccess from './RegistrationSuccess';
 import { IngredientProvider } from './context/IngredientContext';
-import { TokenProvider } from './context/TokenContext';
+import { EmailProvider } from './context/EmailContext';
 
 
 function App() {
   return (
     <IngredientProvider>
-      <TokenProvider>
+      <EmailProvider>
         <Router>
           <div className="App">
             <Header />
@@ -34,7 +34,7 @@ function App() {
             <Footer />
           </div>
         </Router>
-      </TokenProvider>
+      </EmailProvider>
     </IngredientProvider>
   );
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
-import { useTokenContext } from './context/TokenContext';
+import { useEmailContext } from './context/EmailContext';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const {handleLoginToken} = useTokenContext();
+    const {handleLoginEmail} = useEmailContext();
 
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
@@ -37,7 +37,7 @@ function Login() {
 
                 // Store the token in localStorage and token context
                 localStorage.setItem('token', token);
-                handleLoginToken(username);
+                handleLoginEmail(username);
                 navigate('/');
             } else {
                 // Handle login errors, e.g., incorrect credentials

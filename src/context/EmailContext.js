@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const EmailContext = createContext();
 
-export const TokenProvider = ({ children }) => {
+export const EmailProvider = ({ children }) => {
     const [email, setEmail] = useState("");
 
     const handleLoginEmail = (data) => {
