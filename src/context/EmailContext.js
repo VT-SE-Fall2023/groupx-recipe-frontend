@@ -1,20 +1,20 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const TokenContext = createContext();
+const EmailContext = createContext();
 
 export const TokenProvider = ({ children }) => {
-    const [token, setToken] = useState("");
+    const [email, setEmail] = useState("");
 
-    const handleLoginToken = (token) => {
-        setToken(token);
-        console.log(token);
+    const handleLoginEmail = (data) => {
+        setEmail(data);
+        console.log(data);
       };
 
     return (
-      <TokenContext.Provider value={{ token, handleLoginToken}}>
+      <EmailContext.Provider value={{ email, handleLoginEmail}}>
         {children}
-      </TokenContext.Provider>
+      </EmailContext.Provider>
     );
   };
   
-  export const useTokenContext = () => useContext(TokenContext);
+  export const useEmailContext = () => useContext(EmailContext);
