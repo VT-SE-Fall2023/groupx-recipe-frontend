@@ -18,7 +18,7 @@ spec:
           imagePullPolicy: Always
           env:
           - name: REACT_APP_API_URL
-            value: "http://rg-backend-service:3000"
+            value: "https://rg.discovery.cs.vt.edu/api/v1"
           ports:
             - containerPort: 3000
           resources:
