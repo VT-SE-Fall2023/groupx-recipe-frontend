@@ -11,29 +11,31 @@ import HistoryPage from './HistoryPage';
 import ReactRegistrationSuccess from './RegistrationSuccess';
 import { IngredientProvider } from './context/IngredientContext';
 import { EmailProvider } from './context/EmailContext';
+import { HistoryProvider } from './context/HistoryContext';
 
 
 function App() {
   return (
     <IngredientProvider>
       <EmailProvider>
-        <Router>
-          <div className="App">
-            <Header />
+        <HistoryProvider>
+          <Router>
+            <div className="App">
+              <Header />
+              <div className="container" >
+                <Routes>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/registration-success" element={<ReactRegistrationSuccess />} />
+                  <Route path="/" element={<RecipeDisplay />} />
+                  <Route path="/history" element={<HistoryPage />} />
+                </Routes>
+              </div>
 
-            <div className="container" >
-              <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/registration-success" element={<ReactRegistrationSuccess />} />
-                <Route path="/" element={<RecipeDisplay />} />
-                <Route path="/history" element={<HistoryPage />} />
-              </Routes>
+              <Footer />
             </div>
-
-            <Footer />
-          </div>
-        </Router>
+          </Router>
+        </HistoryProvider>
       </EmailProvider>
     </IngredientProvider>
   );

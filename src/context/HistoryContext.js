@@ -5,12 +5,12 @@ const HistoryContext = createContext();
 export const HistoryProvider = ({ children }) => {
     const [history, setHistory] = useState([]);
   
-    const fetchUserHistory = (data) => {
+    const setUserHistory = (data) => {
       setHistory(data)
     };
   
     return (
-      <HistoryContext.Provider value={{ history, fetchUserHistory }}>
+      <HistoryContext.Provider value={{ history, setUserHistory }}>
         {children}
       </HistoryContext.Provider>
     );

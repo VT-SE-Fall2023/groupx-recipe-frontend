@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
 import { useEmailContext } from './context/EmailContext';
+import { setUserHistory } from './context/HistoryContext'
+import axios from 'axios';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -12,7 +14,7 @@ function Login() {
     const handlePasswordChange = (event) => {
         // You can implement password encoding logic here
         setPassword(event.target.value);
-    };
+    };  
 
     const handleLogin = async () => {
         const apiUrl = process.env.REACT_APP_API_URL + "/user/login";
@@ -38,6 +40,7 @@ function Login() {
                 // Store the token in localStorage and token context
                 localStorage.setItem('token', token);
                 handleLoginEmail(username);
+                fetchUserHistory();
                 navigate('/');
             } else {
                 // Handle login errors, e.g., incorrect credentials
@@ -47,6 +50,21 @@ function Login() {
             console.error('Error during login:', error);
         }
     };
+
+    const fetchUserHistory = async () => {
+        const apiUrl = process.env.REACT_APP_API_URL + "/user/recipeHistory"
+        
+        axios.post(apiUrl,{email: username})
+        .then((response) => {
+            // Handle the success response, e.g., redirect to a login page
+            console.log('Recipe fetched succeed', response.data);
+            setUserHistory(response.data);
+        })
+        .catch((error) => {
+            // Handle the error, e.g., display an error message
+            console.error('Recipe history fetch failed:', error);
+        });
+    } 
 
     return (
         <div className="login-container">

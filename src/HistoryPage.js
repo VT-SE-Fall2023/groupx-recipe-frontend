@@ -8,9 +8,6 @@ import { useEmailContext } from './context/EmailContext';
 import axios from 'axios';
 
 function HistoryPage() {
-    const {email} = useEmailContext();
-    const [history, setHistory] = useState([]);
-    
 
     return (
         <div className='history-page'>
