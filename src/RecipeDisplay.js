@@ -39,26 +39,22 @@ function RecipeDisplay() {
         //   .then((data) => setRecipe(data))
         //   .catch((error) => console.error('Error fetching data: ', error));
         console.log("generate recipe button was clicked");
-        console.log(selectedItems)
+        console.log(selectedItems, token)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
             const REACT_APP_API_URL= "https://rg.discovery.cs.vt.edu/api/v1";
             const apiUrl = `${REACT_APP_API_URL}/recipe`;
             if (token) {
-                axios.post(apiUrl,{ingredients: selectedItems, token: token})
+                axios.post(apiUrl,{ingredients: selectedItems, email: token})
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Recipe generated', response.data);
-                    // setRecipe({
-                    //    recipeName: response.data.recipeName,
-                    //    steps: response.data.recipeSteps
-                    // });
+                    setRecipe(response.data);
                 })
                 .catch((error) => {
                     // Handle the error, e.g., display an error message
                     console.error('Recipe generation failed:', error);
                 });
-                setRecipe(dummyRecipeData);
             } else {
                 axios.post(apiUrl,{ingredients: selectedItems})
                 .then((response) => {
