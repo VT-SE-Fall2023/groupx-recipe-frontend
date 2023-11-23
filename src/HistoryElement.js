@@ -15,9 +15,12 @@ function HistoryElement(props) {
             {description}
         </p>
     )
+    const menuLength = props.instructions.length
+
+
     const containerStyle = {
         width: '1000px',
-        height: isExpanded ? '900px' : '200px',
+        height: isExpanded ? `${menuLength * 110}px` : '200px',
         border: isExpanded ? '2px solid gray' : 'none',
         transition: 'height 0.5s',
     };
