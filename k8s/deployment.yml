@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: rg-frontend
-          image: tp6han/rg-frontend
+          image: tp6han/rg-frontend:main
           env:
           - name: REACT_APP_API_URL
             value: "http://rg-backend-service:3000"
