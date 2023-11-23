@@ -37,7 +37,7 @@ function Login() {
 
                 // Store the token in localStorage and token context
                 localStorage.setItem('token', token);
-                handleLoginToken(token);
+                handleLoginToken(username);
                 navigate('/');
             } else {
                 // Handle login errors, e.g., incorrect credentials
