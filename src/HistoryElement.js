@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './css/HistoryElement.css';
+import { useEmailContext } from './context/EmailContext';
+import { useHistoryContext } from './context/HistoryContext';
 
 import axios from 'axios';
 
@@ -10,6 +12,8 @@ function HistoryElement(props) {
     const [isExpanded, setIsExpanded] = useState(false);
     const handleToggle = () => {setIsExpanded(!isExpanded);};
     const ingredientList = props.ingredients.join(', ')
+    const {email} = useEmailContext();
+    const {setUserHistory} = useHistoryContext();
     //map only for array, so have to use Object.entries to convert
     const recipeSteps = Object.entries(props.instructions).map(([step,description])=>
         <p className='menu-steps'>
@@ -42,10 +46,26 @@ function HistoryElement(props) {
             // Handle the success response, e.g., redirect to a login page
             console.log(response.data);
             console.log(rating)
+            fetchUserHistory() //has to fetch the new updated history again
         })
         .catch((error) => {
             // Handle the error, e.g., display an error message
             console.error('Rating failed:', error);
+        });
+    } 
+
+    const fetchUserHistory = async () => {
+        const apiUrl = process.env.REACT_APP_API_URL + "/user/recipeHistory"
+        
+        axios.post(apiUrl,{email: email})
+        .then((response) => {
+            // Handle the success response, e.g., redirect to a login page
+            console.log('Recipe fetched succeed', response.data);
+            setUserHistory(response.data);
+        })
+        .catch((error) => {
+            // Handle the error, e.g., display an error message
+            console.error('Recipe history fetch failed:', error);
         });
     } 
 
