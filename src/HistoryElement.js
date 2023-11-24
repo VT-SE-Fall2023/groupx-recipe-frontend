@@ -41,33 +41,29 @@ function HistoryElement(props) {
     const handleRateClick = async () => {
         const apiUrl = process.env.REACT_APP_API_URL + "/recipe/rate"
         
-        axios.post(apiUrl,{id: props.id, rating: rating.toString()})
-        .then((response) => {
-            // Handle the success response, e.g., redirect to a login page
+        try {
+            const response = await axios.post(apiUrl, { id: props.id, rating: rating.toString() });
             console.log(response.data);
-            console.log(rating)
-            fetchUserHistory() //has to fetch the new updated history again
-        })
-        .catch((error) => {
-            // Handle the error, e.g., display an error message
+            console.log(rating);
+            
+            // After the rating is successful, fetch user history
+            await fetchUserHistory();
+        } catch (error) {
             console.error('Rating failed:', error);
-        });
+        }
     } 
 
     const fetchUserHistory = async () => {
-        const apiUrl = process.env.REACT_APP_API_URL + "/user/recipeHistory"
-        
-        axios.post(apiUrl,{email: email})
-        .then((response) => {
-            // Handle the success response, e.g., redirect to a login page
+        const apiUrl = process.env.REACT_APP_API_URL + "/user/recipeHistory";
+    
+        try {
+            const response = await axios.post(apiUrl, { email: email });
             console.log('Recipe fetched succeed', response.data);
             setUserHistory(response.data);
-        })
-        .catch((error) => {
-            // Handle the error, e.g., display an error message
+        } catch (error) {
             console.error('Recipe history fetch failed:', error);
-        });
-    } 
+        }
+    };
 
     const renderStars = () => {
         const stars = [];

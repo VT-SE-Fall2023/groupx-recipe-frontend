@@ -16,6 +16,7 @@ function HistoryPage() {
                 { history && history.length > 0 
                     ? history.map((data)=>(
                     <HistoryElement 
+                        key={data._id}
                         id={data._id}
                         name={data.name}
                         date="2023/10/14"
