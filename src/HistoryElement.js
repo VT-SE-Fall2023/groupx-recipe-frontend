@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './css/HistoryElement.css';
 
+import axios from 'axios';
+
 //props include: name, date, rate, ingredients, steps
 function HistoryElement(props) {
 
@@ -32,9 +34,20 @@ function HistoryElement(props) {
         } 
     };
 
-    const handleRateClick = () => {
-        console.log(rating)
-    }
+    const handleRateClick = async () => {
+        const apiUrl = process.env.REACT_APP_API_URL + "/recipe/rate"
+        
+        axios.post(apiUrl,{id: props.id, rating: rating.toString()})
+        .then((response) => {
+            // Handle the success response, e.g., redirect to a login page
+            console.log(response.data);
+            console.log(rating)
+        })
+        .catch((error) => {
+            // Handle the error, e.g., display an error message
+            console.error('Rating failed:', error);
+        });
+    } 
 
     const renderStars = () => {
         const stars = [];
