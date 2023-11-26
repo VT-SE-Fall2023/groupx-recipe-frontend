@@ -3,10 +3,19 @@ import React, { createContext, useContext, useState} from 'react';
 const EmailContext = createContext();
 
 export const EmailProvider = ({ children }) => {
-    const [email, setEmail] = useState("");
+  const getStoredEmail = () => {
+    try {
+        return localStorage.getItem('email') || "";
+    } catch (error) {
+        console.error('Error retrieving last category from local storage', error);
+    }
+};
+
+    const [email, setEmail] = useState(() => getStoredEmail());
 
     const handleLoginEmail = (data) => {
         setEmail(data);
+        localStorage.setItem('email', data);
         console.log(data);
       };
 
