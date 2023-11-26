@@ -81,7 +81,6 @@ function HistoryElement(props) {
         <div className='history-element' style={containerStyle}>
                     <h5 className='menu-title'>{props.name}</h5>
                     <div className='functions'>
-                        <p className='menu-date'>{props.date}</p>
                         <div className="rating">
                             {renderStars()}
                         </div>
