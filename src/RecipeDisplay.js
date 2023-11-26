@@ -88,6 +88,7 @@ function RecipeDisplay() {
         padding: '5% 20%',
     };
 
+
     return (
 
         <div className="container" >
