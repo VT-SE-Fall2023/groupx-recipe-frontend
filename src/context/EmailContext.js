@@ -9,7 +9,7 @@ export const EmailProvider = ({ children }) => {
     } catch (error) {
         console.error('Error retrieving last category from local storage', error);
     }
-};
+  };
 
     const [email, setEmail] = useState(() => getStoredEmail());
 

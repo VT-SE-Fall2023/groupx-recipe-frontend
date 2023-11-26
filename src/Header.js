@@ -14,6 +14,7 @@ function Header() {
     const handleLogout = () => {
         // Remove the token from localStorage or perform any other necessary cleanup
         localStorage.removeItem('email');
+        localStorage.removeItem('history');
         setUserHistory([])
         handleLoginEmail("")
         navigate('/');
