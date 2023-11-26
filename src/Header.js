@@ -7,13 +7,14 @@ import { useEmailContext } from './context/EmailContext';
 function Header() {
     const { pathname } = useLocation();
     const navigate = useNavigate();
-    const isAuthenticated = !!localStorage.getItem('token'); // Check if the user is authenticated
+    const isAuthenticated = !!localStorage.getItem('email'); // Check if the user is authenticated
     const {setUserHistory} = useHistoryContext();
     const {handleLoginEmail} = useEmailContext();
 
     const handleLogout = () => {
         // Remove the token from localStorage or perform any other necessary cleanup
-        localStorage.removeItem('token');
+        localStorage.removeItem('email');
+        localStorage.removeItem('history');
         setUserHistory([])
         handleLoginEmail("")
         navigate('/');

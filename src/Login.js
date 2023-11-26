@@ -38,8 +38,7 @@ function Login() {
                 const token = data.token;
                 console.log('Logged in with token:', token);
 
-                // Store the token in localStorage and token context
-                localStorage.setItem('token', token);
+                // Store the email in localStorage and email context
                 handleLoginEmail(username);
                 fetchUserHistory();
                 navigate('/');

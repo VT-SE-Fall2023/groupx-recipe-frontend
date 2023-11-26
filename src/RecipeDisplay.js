@@ -12,6 +12,7 @@ import axios from 'axios';
 function RecipeDisplay() {
     const { selectedItems} = useIngredientContext();
     const [recipe, setRecipe] = useState(null);
+    const [loading, setLoading] = useState(false);
     const {email} = useEmailContext();
 
     // const dummyRecipeData = {
@@ -39,6 +40,7 @@ function RecipeDisplay() {
         //   .then((data) => setRecipe(data))
         //   .catch((error) => console.error('Error fetching data: ', error));
         console.log("generate recipe button was clicked");
+        setLoading(true);
         console.log(selectedItems, email)
         // Simulate an API call by setting the recipe data after a short delay
         setTimeout(() => {
@@ -49,6 +51,7 @@ function RecipeDisplay() {
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Recipe generated', response.data);
+                    setLoading(false);
                     setRecipe(response.data);
                 })
                 .catch((error) => {
@@ -60,6 +63,7 @@ function RecipeDisplay() {
                 .then((response) => {
                     // Handle the success response, e.g., redirect to a login page
                     console.log('Recipe generated', response.data);
+                    setLoading(false);
                     setRecipe(response.data);
                 })
                 .catch((error) => {
@@ -84,6 +88,7 @@ function RecipeDisplay() {
         padding: '5% 20%',
     };
 
+
     return (
 
         <div className="container" >
@@ -97,7 +102,9 @@ function RecipeDisplay() {
             </div>
 
             <div style={divStyle} ref={recipeDisplayRef}>
-                {recipe ? (
+                {loading ? (
+                    <h3 className="loading-message">Generating recipe...</h3>
+                ) : recipe ? (
                     <div
                         className={`recipe-display ${recipe ? 'active' : ''}`}
                     >
