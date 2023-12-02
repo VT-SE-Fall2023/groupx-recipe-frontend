@@ -1,71 +1,40 @@
 # groupx-recipe-generator
-## Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Testing
+### Unit Tests
 
-### Available Scripts
+```
+npm install
+npm test
+```
 
-In the project directory, you can run:
+### Acceptance Tests
 
-#### `npm start`
+> Access the website at https://rg.discovery.cs.vt.edu/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Use Cases Diagram
+![Use Cases Diagram](./.github/img/use_case_diagram.png)
 
-#### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Use Case               | Test Case               | Preconditions                          | Steps                                                  | Expected Result                                       |
+|------------------------|-------------------------|----------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| Choose Ingredients     | Selecting Ingredients   |         | 1. Navigate to "Choose Ingredients" section.<br> 2. Select multiple ingredients.<br> 3. Confirm selection. | Selected ingredients are displayed correctly.          |
+| Choose Ingredients     | Canceling Selection     | User has selected at least one ingredient | 1. Select some ingredients.<br> 2. Choose to cancel the selection. | The selection is canceled, and no changes are applied. |
+| Generate Recipe        | Generating a Recipe      | User has selected ingredients         | 1. Click "Generate Recipe" button.<br> 2. Review the generated recipe. | A coherent recipe is generated with selected ingredients. |
+| User Registration      | New User Registration    | User is not registered                | 1. Navigate to registration page.<br> 2. Fill in required information.<br> 3. Submit registration form. | User is registered; system confirms registration.     |
+| User Login             | Existing User Login      | User is registered                    | 1. Navigate to login page.<br> 2. Enter valid credentials.<br> 3. Submit login form. | User is logged in and redirected to the home page.    |
+| Rate Recipe            | Rating a Recipe          | 1. User is registered.<br> 2. User is logined.<br> 3.User has generated or viewed a recipe | 1. Go to recipe history page.<br> 2. Provide a rating - click stars.<br> 3. Save the rating - click "Rate" Button. | Rating is saved and reflected in the recipe history page.  |
+| View Generated History  | Viewing Generated History|1. User is registered.<br> 2. User is logined.<br> 3. User has generated recipes            | 1. Navigate to "History" section.<br> 2. Review list of generated recipes. | User's generated history is displayed accurately.    |
 
-#### `npm run build`
+### Test Evidence
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-#### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-### Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-#### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-#### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-#### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-#### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-#### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-#### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Use Case               | Evidence (access with vt email)          | 
+|------------------------|-------------------------|
+| Choose Ingredients|  ![](./.github/img/generate_recipe.gif) |
+| Generate Recipe|  ![](./.github/img/generate_recipe.gif) |
+| User Registration|  ![](./.github/img/register.gif) |
+| User Login|  ![](./.github/img/login.gif) |
+| Rate Recipe|  ![](./.github/img/rate_recipe.gif) |
+| View Generated History|  ![](./.github/img/view_history.gif) |
