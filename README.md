@@ -9,9 +9,9 @@ npm test
 ```
 
 ## Acceptance Tests
-:::info
-Access the website at https://rg.discovery.cs.vt.edu/
-:::
+
+> Access the website at https://rg.discovery.cs.vt.edu/
+
 
 Use Cases Diagram
 ![Use Cases Diagram](./.github/img/use_case_diagram.png)
